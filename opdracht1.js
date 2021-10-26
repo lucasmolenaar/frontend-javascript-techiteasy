@@ -161,3 +161,51 @@ const inventory = [
         sold: 8,
     },
 ];
+
+// OPDRACHT 1A
+const typeNames = inventory.map((tv) => {
+    return tv.type;
+})
+
+console.log(typeNames);
+
+//OPDRACHT 1B
+const soldOut = inventory.filter((tv) => {
+    return tv.originalStock - tv.sold === 0;
+})
+
+console.log(soldOut);
+
+//OPDRACHT 1C
+const containsAmbiLight = inventory.filter((tv) => {
+    return tv.options.ambiLight === true;
+})
+
+console.log(containsAmbiLight);
+
+//OPDRACHT 1D
+const priceSorted = inventory.sort((a, b) => {
+    return a.price - b.price;
+})
+
+console.log(priceSorted);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
