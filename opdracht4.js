@@ -200,6 +200,7 @@ function showScreenSizes(screenSizesArray) {
 console.log(showScreenSizes(inventory[0].availableSizes));
 
 //OPDRACHT 4D
+/*
 const title = document.getElementById('name-brand-type');
 const price = document.getElementById('price');
 const tvSizes = document.getElementById('sizes');
@@ -207,7 +208,44 @@ const tvSizes = document.getElementById('sizes');
 title.textContent = showInformation(inventory[0]);
 price.textContent = makePrice(inventory[0].price);
 tvSizes.textContent = showScreenSizes(inventory[0].availableSizes);
+ */
 
+//OPDRACHT 4E
+const tvsContainer = document.getElementById('tvs-container');
+
+function tvGenerator(tvObjects) {
+  const tvs = tvObjects.map((tv) => {
+    //Getting data from inventory
+    const info = showInformation(tv);
+    const price = makePrice(tv.price);
+    const sizes = showScreenSizes(tv.availableSizes);
+
+    //Creating new HTML elements
+    const newTv = document.createElement('div');
+    const infoTitle = document.createElement('h1');
+    const priceTitle = document.createElement('h2');
+    const sizesTitle = document.createElement('h3');
+
+    //Adding classes to elements
+    newTv.setAttribute('class', 'tv-container');
+    infoTitle.setAttribute('class', 'info-title');
+    priceTitle.setAttribute('class', 'price-title');
+    sizesTitle.setAttribute('class', 'sizes-title');
+
+    //Adding data to HTML elements
+    infoTitle.textContent = info;
+    priceTitle.textContent = price;
+    sizesTitle.textContent = sizes;
+
+    //Appending to parent elements
+    tvsContainer.appendChild(newTv);
+    newTv.appendChild(infoTitle);
+    newTv.appendChild(priceTitle);
+    newTv.appendChild(sizesTitle);
+  })
+}
+
+tvGenerator(inventory);
 
 
 
