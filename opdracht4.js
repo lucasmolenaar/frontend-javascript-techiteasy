@@ -226,11 +226,8 @@ function tvGenerator(tvObjects) {
     const priceTitle = document.createElement('h2');
     const sizesTitle = document.createElement('h3');
 
-    //Adding classes to elements
+    //Adding class to element
     newTv.setAttribute('class', 'tv-container');
-    infoTitle.setAttribute('class', 'info-title');
-    priceTitle.setAttribute('class', 'price-title');
-    sizesTitle.setAttribute('class', 'sizes-title');
 
     //Adding data to HTML elements
     infoTitle.textContent = info;
@@ -247,6 +244,47 @@ function tvGenerator(tvObjects) {
 
 tvGenerator(inventory);
 
+//BONUS OPDRACHT
+
+//Selectors
+const sortBtn = document.getElementById('btn-sort');
+const ambiLightBtn = document.getElementById('btn-ambilight');
+const soldOutBtn = document.getElementById('btn-soldout');
+
+//Event listeners
+sortBtn.addEventListener('click', () => {
+  sortOnPrice(inventory);
+})
+
+ambiLightBtn.addEventListener('click', () => {
+  getAmbiLightTvs(inventory);
+})
+
+soldOutBtn.addEventListener('click', () => {
+  getSoldOutTvs(inventory);
+})
+
+//Functions
+function sortOnPrice(tvInventory) {
+  tvInventory.sort((a, b) => {
+    return a.price - b.price;
+  })
+  console.log(tvInventory);
+}
+
+function getAmbiLightTvs(tvInventory) {
+  const ambiLightTvs = tvInventory.filter((tv) => {
+    return tv.options.ambiLight === true;
+  })
+  console.log(ambiLightTvs);
+}
+
+function getSoldOutTvs(tvInventory) {
+  const soldOutTvs = tvInventory.filter((tv) => {
+    return tv.originalStock - tv.sold === 0;
+  })
+  console.log(soldOutTvs);
+}
 
 
 

@@ -73,11 +73,25 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.info-title {
+.buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem auto;
 }
 
-.price-title {
+.button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: 2px solid #487F78;
+    background-color: #F1EEE9;
+    color: #487F78;
+    cursor: pointer;
 }
 
-.sizes-title {
+.button:hover {
+    color: #F1EEE9;
+    background-color: #487F78;
+    transition: .3s all ease-in-out;
 }
